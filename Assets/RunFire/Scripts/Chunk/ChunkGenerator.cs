@@ -33,6 +33,9 @@ namespace RunFire {
         private ObjectPool<GameObject> _pool;
 
         public void Regenerate() {
+            foreach (Transform tile in m_parent)
+                _pool.Release(tile.gameObject);
+
             for (var i = 0; i < 10; ++i) {
                 var tile = _pool.Get();
                 tile.transform.parent = m_parent;
