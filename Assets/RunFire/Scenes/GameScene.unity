@@ -215,7 +215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3427565903222896696, guid: 1ac650c08602226d0b4dba3307bf7959, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.199997
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 3427565903222896696, guid: 1ac650c08602226d0b4dba3307bf7959, type: 3}
       propertyPath: m_LocalPosition.y
@@ -277,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3427565903222896696, guid: 1ac650c08602226d0b4dba3307bf7959, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.4
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 3427565903222896696, guid: 1ac650c08602226d0b4dba3307bf7959, type: 3}
       propertyPath: m_LocalPosition.y
@@ -369,7 +369,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 464296407}
-  - component: {fileID: 464296408}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -395,19 +394,6 @@ Transform:
   m_Father: {fileID: 419205185}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &464296408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464296406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b7e75fcca4f6e513bcbece9ee04a571, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_player: {fileID: 658201878}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,7 +911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3427565903222896696, guid: 1ac650c08602226d0b4dba3307bf7959, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3427565903222896696, guid: 1ac650c08602226d0b4dba3307bf7959, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1049,6 +1035,10 @@ PrefabInstance:
       propertyPath: m_jump_force
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8250188652736753542, guid: fa8000f1093085ca6886a72953e008b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.07
+      objectReference: {fileID: 0}
     - target: {fileID: 8250188652736753543, guid: fa8000f1093085ca6886a72953e008b8, type: 3}
       propertyPath: m_Name
       value: sprite
@@ -1059,7 +1049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8250188653386923544, guid: fa8000f1093085ca6886a72953e008b8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.26
       objectReference: {fileID: 0}
     - target: {fileID: 8250188653386923544, guid: fa8000f1093085ca6886a72953e008b8, type: 3}
       propertyPath: m_LocalPosition.y
