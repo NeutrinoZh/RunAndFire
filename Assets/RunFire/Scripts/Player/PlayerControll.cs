@@ -3,7 +3,7 @@ using UnityEngine;
 namespace RunFire {
     public class PlayerControll : MonoBehaviour
     {
-        private PlayerStats m_stats;
+        private PlayerStats m_stats; 
         private Rigidbody2D m_rd;
 
         [SerializeField]
