@@ -2,22 +2,26 @@ using UnityEngine;
 using System.Collections.Generic;
 
 namespace RunFire {
-    public struct LevelParams {
-        public float max_speed;
-        public float velocity;
-    };
-    
-    public class LevelManager
+    public class LevelManager : MonoBehaviour
     {
-        private static List<LevelParams> levels = new() {
-            new LevelParams {
-                max_speed = 5f,
-                velocity = 1.0002f
-            }
-        };
+        private static LevelManager Singlton;
 
-        public static LevelParams GetLevelParams(int level) {
-            return levels[level];
-        } 
+        private void Start()
+        {
+            if (Singlton) {
+                Destroy(gameObject);
+                return;
+            }
+
+            Singlton = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        [SerializeField]
+        private List<LevelData> levels = new() {};
+    
+        public static LevelData GetLevelParams(int id) {
+            return Singlton.levels[id];
+        }
     }
 }
