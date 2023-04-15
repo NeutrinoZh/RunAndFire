@@ -27,7 +27,7 @@ namespace RunFire {
             s_direction.x = -PlayerStats.Singlton.Speed;
             transform.position += s_direction * Time.deltaTime;
 
-            if (transform.position.x < -SCREEN_WIDTH) {
+            if (transform.position.x <= -SCREEN_WIDTH) {
                 transform.position = REINIT_POSITION;
                 m_generator.Regenerate();
             }
