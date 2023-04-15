@@ -7,5 +7,12 @@ namespace RunFire {
     {
         [SerializeField]
         private List<Sprite> m_variants;
+
+        public Sprite GetRandomSprite() {
+            if (m_variants.Count == 0)
+                return null;
+
+            return m_variants[Random.Range(0, m_variants.Count)];
+        }
     }
 }

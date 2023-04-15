@@ -38,6 +38,7 @@ namespace RunFire {
 
                 tile.transform.parent = parent;
                 tile.transform.localPosition = Vector3.zero + Vector3.left * i * 2.05f;
+                tile.setSprite(m_ground.GetRandomSprite());
 
                 tiles.Add(tile);
             }

@@ -5,7 +5,7 @@ namespace RunFire {
     {
         private SpriteRenderer m_renderer; 
 
-        private void Start() {
+        private void Awake() {
             m_renderer = GetComponent<SpriteRenderer>();
         }  
 
