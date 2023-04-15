@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace RunFire {
     public class Chunk : MonoBehaviour
@@ -11,15 +12,22 @@ namespace RunFire {
 
 
         private ChunkGenerator m_generator;
+        private List<Tile> m_tiles;
+
+        private Transform m_tiles_parent;
+
+        //====================================================//
 
         private void Awake()
         {
-            m_generator = GetComponent<ChunkGenerator>();
+            m_tiles = new(){};
+            m_tiles_parent = transform.GetChild(0);
+            m_generator = transform.parent.GetComponent<ChunkGenerator>();
         }
 
         private void Start()
         {
-            m_generator.Regenerate();
+            m_generator.Regenerate(m_tiles_parent, m_tiles);
         }
 
         private void Update()
@@ -29,8 +37,10 @@ namespace RunFire {
 
             if (transform.position.x <= -SCREEN_WIDTH) {
                 transform.position = REINIT_POSITION;
-                m_generator.Regenerate();
+                m_generator.Regenerate(m_tiles_parent, m_tiles);
             }
         }
+
+        //====================================================//
     }
 }

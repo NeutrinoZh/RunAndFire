@@ -1,21 +1,17 @@
 using UnityEngine;
 using UnityEngine.Pool;
+using System.Collections.Generic;
 
 namespace RunFire {
     public class ChunkGenerator : MonoBehaviour
     {
-        // Parent for generate objects
-        private Transform m_parent;
-
         private void Awake()
-        {
-            m_parent = transform.GetChild(0);       
-            
-            _pool = new ObjectPool<GameObject>(
-                () => Instantiate(m_tile), 
-                obj => obj.SetActive(true),
-                obj => obj.SetActive(false),
-                obj => Destroy(obj),
+        {       
+            _pool = new ObjectPool<Tile>(
+                () => Instantiate(m_tile_prefab).GetComponent<Tile>(), 
+                obj => obj.gameObject.SetActive(true),
+                obj => obj.gameObject.SetActive(false),
+                obj => Destroy(obj.gameObject),
                 false, 10, 10
             );
         } 
@@ -23,23 +19,27 @@ namespace RunFire {
         //
 
         [SerializeField]
-        private GameObject m_tile; 
+        private GameObject m_tile_prefab; 
 
         [SerializeField]
         private TileData m_ground;
 
         //
 
-        private ObjectPool<GameObject> _pool;
+        private ObjectPool<Tile> _pool;
 
-        public void Regenerate() {
-            foreach (Transform tile in m_parent)
-                _pool.Release(tile.gameObject);
+        public void Regenerate(Transform parent, List<Tile> tiles) {
+            foreach (Tile tile in tiles)
+                _pool.Release(tile);
 
+            tiles.Clear();
             for (var i = 0; i < 10; ++i) {
                 var tile = _pool.Get();
-                tile.transform.parent = m_parent;
+
+                tile.transform.parent = parent;
                 tile.transform.localPosition = Vector3.zero + Vector3.left * i * 2.05f;
+
+                tiles.Add(tile);
             }
         }
     }
