@@ -1,8 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 namespace RunFire {
     public class PlayerControll : MonoBehaviour
     {
+        [SerializeField]
+        private GameObject m_gameover;
+
         private PlayerStats m_stats; 
         private Rigidbody2D m_rd;
 
@@ -18,6 +22,17 @@ namespace RunFire {
         private void OnCollisionEnter2D(Collision2D other)
         {   
             m_on_ground = true;
+            if (other.transform.TryGetComponent(out Tile tile)) {
+                if (tile.Data.Name == "Spike") {
+                    m_gameover.SetActive(true);
+                    StartCoroutine(OffGameOver());
+                }
+            }
+        }
+
+        private IEnumerator OffGameOver() {
+            yield return new WaitForSeconds(2f);
+            m_gameover.SetActive(false);
         }
 
         private void FixedUpdate()

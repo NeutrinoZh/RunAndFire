@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_variants:
   - {fileID: -788079089, guid: 0b39fefd9e7080cbeb87024931d0ebb6, type: 3}
+  m_name: Spike

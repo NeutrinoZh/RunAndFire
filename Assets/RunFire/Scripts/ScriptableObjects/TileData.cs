@@ -8,6 +8,13 @@ namespace RunFire {
         [SerializeField]
         private List<Sprite> m_variants;
 
+        [SerializeField]
+        private string m_name;
+
+        public string Name {
+            get { return m_name; }
+        }
+
         public Sprite GetRandomSprite() {
             if (m_variants.Count == 0)
                 return null;
