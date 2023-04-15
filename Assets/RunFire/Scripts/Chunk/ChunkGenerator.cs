@@ -24,6 +24,9 @@ namespace RunFire {
         [SerializeField]
         private TileData m_ground;
 
+        [SerializeField]
+        private TileData m_spike;
+
         //
 
         private ObjectPool<Tile> _pool;
@@ -33,14 +36,26 @@ namespace RunFire {
                 _pool.Release(tile);
 
             tiles.Clear();
-            for (var i = 0; i < 10; ++i) {
-                var tile = _pool.Get();
+            {
+                for (var i = 0; i < 10; ++i) {
+                    var tile = _pool.Get();
 
-                tile.transform.parent = parent;
-                tile.transform.localPosition = Vector3.zero + Vector3.left * i * 2.05f;
-                tile.setSprite(m_ground.GetRandomSprite());
+                    tile.transform.parent = parent;
+                    tile.transform.localPosition = Vector3.zero + Vector3.left * i * 2.05f;
+                    tile.setSprite(m_ground.GetRandomSprite());
 
-                tiles.Add(tile);
+                    tiles.Add(tile);
+                }
+
+                for (var i = 0; i < Random.Range(0, 3); ++i) {
+                    var tile = _pool.Get();
+
+                    tile.transform.parent = parent;
+                    tile.transform.localPosition = Vector3.zero + Vector3.up * 2.05f + Vector3.left * i * 2.05f;
+                    tile.setSprite(m_spike.GetRandomSprite());
+
+                    tiles.Add(tile);
+                }
             }
         }
     }

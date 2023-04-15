@@ -409,6 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_tile_prefab: {fileID: 3959433534418749320, guid: 564db327d73332fbebef28106acf616d, type: 3}
   m_ground: {fileID: 11400000, guid: fb93a8430c9cc49ebace683fee34ce99, type: 2}
+  m_spike: {fileID: 11400000, guid: 7a933a87b6fda734a89f12fc4a7517c3, type: 2}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
